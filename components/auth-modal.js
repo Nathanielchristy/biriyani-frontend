@@ -230,12 +230,11 @@ export default function AuthModal() {
   })
 
   useEffect(() => {
-    if (!showAuthModal && redirectToCheckout) {
-      setRedirectToCheckout(false)
+    if (isAuthenticated && redirectToCheckout) {
       router.push("/checkout")
+      setRedirectToCheckout(false)
     }
-  // }, [showAuthModal, redirectToCheckout, router, setRedirectToCheckout])
-  },  [showAuthModal, redirectToCheckout])
+  }, [isAuthenticated, redirectToCheckout, router, setRedirectToCheckout, showAuthModal])
 
   if (!showAuthModal) return null
 
@@ -246,11 +245,9 @@ export default function AuthModal() {
       if (authMode === "signin") {
         await signIn(formData.email, formData.password)
       } else {
-        const result= await signUp(formData.name, formData.email, formData.password)
-        if (result?.success) {
-        alert("Sign up successful! Redirecting to checkout...")
+        await signUp(formData.name, formData.email, formData.password)
       }
-      }
+      // No need to alert here, the redirect is handled by the useEffect hook
     } catch (err) {
       setError(err.message)
     }

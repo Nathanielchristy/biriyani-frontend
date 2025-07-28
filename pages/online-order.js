@@ -327,20 +327,10 @@ const OnlineOrder = () => {
       ...item,
       price: Number.parseFloat(item.price),
     }
-
-    // addToCart(processedItem)
-
-    // if (isAuthenticated) {
-    //   router.push("/checkout")
-    // } else {
-    //   setRedirectToCheckout(true)
-    //   setShowAuthModal(true)
-    // }
+    addToCart(processedItem)
     if (isAuthenticated) {
-      addToCart(processedItem)
       router.push("/checkout")
     } else {
-      addToCart(processedItem)
       setRedirectToCheckout(true)
       setShowAuthModal(true)
     }
