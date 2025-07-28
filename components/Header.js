@@ -62,7 +62,7 @@ const Header = () => {
                       <a href="/">Home</a>
                     </li>
                     <li className="dropdown has-mega-menu">
-                      <a href="#">Menus</a>
+                      <a href="/online-order">Menus</a>
                       {/* <ul>
                         <li>
                           <div className="mega-menu">
