@@ -80,7 +80,7 @@ const OnlineOrder = () => {
 
       <div className="page-wrapper">
         <Header />
-        <div className="menu-backdrop" />
+        {/* <div className="menu-backdrop" /> */}
 
         {/* Banner */}
         <section className="inner-banner">

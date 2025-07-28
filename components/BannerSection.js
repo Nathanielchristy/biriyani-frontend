@@ -53,7 +53,7 @@ export default function BannerSlider() {
                         </div>
                         <div className="links-box">
                           <a
-                            href="menu-list-1.html"
+                            href="/online-order"
                             className="theme-btn btn-style-two clearfix"
                           >
                             <span className="btn-wrap">
@@ -103,7 +103,7 @@ export default function BannerSlider() {
                         </div>
                         <div className="links-box">
                           <a
-                            href="menu-list-2.html"
+                            href="/online-order"
                             className="theme-btn btn-style-two clearfix"
                           >
                             <span className="btn-wrap">
@@ -134,11 +134,11 @@ export default function BannerSlider() {
 
       {/* Book a table button */}
       <div className="book-btn">
-        <a href="reservation-opentable.html" className="theme-btn">
+        <a href="/online-order" className="theme-btn">
           <span className="icon">
             <img src="images/resource/book-icon-1.png" alt="" title="" />
           </span>
-          <span className="txt">book a table</span>
+          <span className="txt">Menu</span>
         </a>
       </div>
     </section>

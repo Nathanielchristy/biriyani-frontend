@@ -196,7 +196,7 @@ const Header = () => {
                 </div> */}
               </div>
               {/* Hidden Nav Toggler */}
-              <div className="nav-toggler">
+              {/* <div className="nav-toggler">
                 <button className="hidden-bar-opener">
                   <span className="hamburger">
                     <span className="top-bun" />
@@ -204,7 +204,7 @@ const Header = () => {
                     <span className="bottom-bun" />
                   </span>
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
