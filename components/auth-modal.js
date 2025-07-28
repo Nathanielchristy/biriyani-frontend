@@ -219,6 +219,7 @@ export default function AuthModal() {
     signIn,
     signUp,
     setRedirectToCheckout,
+    isAuthenticated,
   } = useAuthStore()
 
   const [showPassword, setShowPassword] = useState(false)
