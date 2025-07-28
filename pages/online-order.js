@@ -61,7 +61,7 @@
 // const categories = ["Soup", "Hyderabadi Specialities", "Famous Kebab", "Platters", "Chineese Specialities", "Rice & Noodle", "Famous Gravy", "Haleem", "Roti & Naan", "Rice", "Accompaniments", "BWCO Biryani", "Beverages","Desserts","Combo Meals", "Punjabi Kulchas"];
 
 
- 
+
 // const OnlineOrder = ({ id, name, description, price, image, rating, category }) => {
 //   const router = useRouter()
 //   const { isAuthenticated, addToCart } = useAuthStore()
@@ -102,10 +102,10 @@
 //     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
 //   />
 //   <link href="css/responsive.css" rel="stylesheet" />
- 
+
 // </>
 //      <div className="page-wrapper">
- 
+
 //  <Header/>
 
 //   <div className="menu-backdrop" />
@@ -184,13 +184,13 @@
 //                         <div className="price">
 //                           <span>{item.price}</span>
 //                         </div>
-                       
+
 //                       </div>
 //                       <div className="text desc">
 //                         <p>{item.desc}</p>
 //                       </div>
 //                        {/* <div>
-                      
+
 //                           <button className="bg-[#E4C590] text-black p-1 rounded-sm ">Add to Cart</button>
 //                         </div> */}
 
@@ -221,7 +221,7 @@
 //   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-[6px]">
 //     <div className="relative w-[90%] max-w-md bg-white/10 backdrop-blur-2xl border border-white/20 rounded-xl p-8 shadow-2xl text-white transform -translate-y-1/2 top-64">
 
-     
+
 //       <button
 //         className="absolute top-3 right-4 text-white text-2xl hover:text-[#E4C590]"
 //         onClick={() => setShowSignup(false)}
@@ -229,12 +229,12 @@
 //         &times;
 //       </button>
 
-     
+
 //       <h2 className="text-2xl font-semibold mb-6 text-center">
 //         Sign Up
 //       </h2>
 
- 
+
 //       <input
 //         type="text"
 //         placeholder="Name"
@@ -251,7 +251,7 @@
 //         className="w-full p-3 mb-5 rounded-md bg-white/20 placeholder-white/70 text-white border border-white/30 focus:outline-none"
 //       />
 
-      
+
 //       <button className="w-full py-3 bg-[#E4C590] text-black font-semibold rounded-md hover:bg-[#d9b567] transition">
 //         Create Account
 //       </button>
@@ -262,11 +262,11 @@
 
 
 //   <Footer/>
- 
+
 // </div>
 //     </>
 
-  
+
 
 //   )
 // }
@@ -296,7 +296,7 @@ const OnlineOrder = () => {
   const [selectedCategory, setSelectedCategory] = useState("All")
 
   useEffect(() => {
-    if (isAuthenticated && redirectToCheckout){
+    if (isAuthenticated && redirectToCheckout) {
       console.log("authenticate redirect")
       router.push("/checkout")
       setRedirectToCheckout(false)
@@ -323,6 +323,7 @@ const OnlineOrder = () => {
   const categories = ["All", ...new Set(menuItems.map((item) => item.category))]
 
   const handleAddToCart = (item) => {
+    console.log(item)
     const processedItem = {
       ...item,
       price: Number.parseFloat(item.price),
