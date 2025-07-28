@@ -1,10 +1,9 @@
-
-
 "use client"
 
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { useAuthStore } from "../lib/auto-store"
+import { useAuthStore } from "../lib/auth-store" // auth Zustand store
+import { useCartStore } from "@/lib/cart-store"
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
@@ -12,7 +11,9 @@ import { User, MapPin, CreditCard, ArrowLeft } from "lucide-react"
 
 export default function CheckoutPage() {
   const router = useRouter()
-  const { isAuthenticated, user, cartItem, setCartItem } = useAuthStore()
+  const { isAuthenticated, user } = useAuthStore()
+  const { cartItems, clearCart } = useCartStore()
+  const [hydrated, setHydrated] = useState(false)
 
   const [orderData, setOrderData] = useState({
     fullName: "",
@@ -27,17 +28,25 @@ export default function CheckoutPage() {
     cardName: "",
   })
 
+  // Mark hydration complete after mount
   useEffect(() => {
+    setHydrated(true)
+  }, [])
+
+  useEffect(() => {
+    if (!hydrated) return
+
     if (!isAuthenticated) {
       router.push("/")
       return
     }
 
-    if (cartItem === null) {
-      // Instead of redirecting, show a message to the user
+    if (!cartItems || cartItems.length === 0) {
       alert("Your cart is empty. Please add items to proceed with checkout.")
+      router.push("/online-order")
       return
     }
+
     if (user) {
       setOrderData((prev) => ({
         ...prev,
@@ -45,7 +54,7 @@ export default function CheckoutPage() {
         email: user.email || "",
       }))
     }
-  }, [isAuthenticated, cartItem, user, router])
+  }, [hydrated, isAuthenticated, cartItems, user, router])
 
   const handleInputChange = (field, value) => {
     setOrderData((prev) => ({ ...prev, [field]: value }))
@@ -53,8 +62,24 @@ export default function CheckoutPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (
+      !orderData.fullName ||
+      !orderData.email ||
+      !orderData.phone ||
+      !orderData.address ||
+      !orderData.city ||
+      !orderData.zipCode ||
+      !orderData.cardNumber ||
+      !orderData.expiryDate ||
+      !orderData.cvv ||
+      !orderData.cardName
+    ) {
+      alert("Please fill out all fields.")
+      return
+    }
+
     alert("Order placed successfully! 🎉")
-    setCartItem(null)
+    clearCart()
     router.push("/")
   }
 
@@ -62,9 +87,10 @@ export default function CheckoutPage() {
     router.push("/")
   }
 
-  if (!isAuthenticated || !cartItem) return null
+  if (!hydrated || !isAuthenticated || !cartItems) return null
 
-  const subtotal = cartItem.price
+  // Calculate totals from cartItems
+  const subtotal = cartItems.reduce((acc, item) => acc + item.price * (item.quantity || 1), 0)
   const deliveryFee = 2.99
   const tax = subtotal * 0.08
   const total = subtotal + deliveryFee + tax
@@ -81,9 +107,8 @@ export default function CheckoutPage() {
           <h2 className="text-2xl font-semibold text-gray-900">Checkout</h2>
         </div>
 
-        {/* Two columns layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Left column: Checkout form */}
+          {/* Left: Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Contact Info */}
             <section>
@@ -167,7 +192,7 @@ export default function CheckoutPage() {
               </div>
             </section>
 
-            {/* Payment Information */}
+            {/* Payment Info */}
             <section>
               <h3 className="flex items-center text-lg font-semibold mb-2 text-gray-900">
                 <CreditCard className="w-5 h-5 mr-2" /> Payment Information
@@ -218,36 +243,40 @@ export default function CheckoutPage() {
               </div>
             </section>
 
-            {/* Submit Button */}
             <Button
               type="submit"
               className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 text-lg font-semibold"
             >
-              Place Order - ₹{total.toFixed(2)}
+              Place Order - AED {total.toFixed(2)}
             </Button>
           </form>
 
-          {/* Right column: Order summary + continue shopping */}
+          {/* Right column: Order summary */}
           <div className="border p-4 rounded-md bg-gray-50 flex flex-col justify-between">
             <div>
               <h3 className="text-xl font-semibold mb-4">Order Summary</h3>
-              <div className="flex items-center gap-4 mb-4">
-                <img
-                  src={cartItem.image || "/placeholder.png"}
-                  alt={cartItem.name}
-                  className="w-20 h-20 object-cover rounded"
-                />
-                <div>
-                  <h4 className="text-lg font-semibold">{cartItem.name}</h4>
-                  <p className="text-gray-600">Price: ₹{cartItem.price.toFixed(2)}</p>
-                  <p className="text-gray-500 text-sm">{cartItem.description}</p>
-                </div>
-              </div>
+              {cartItems.length > 0 &&
+                cartItems.map((item) => (
+                  <div key={item.id || item._id} className="flex items-center gap-4 mb-4">
+                    <img
+                      src={item.image || "/placeholder.png"}
+                      alt={item.name || "Item"}
+                      className="w-20 h-20 object-cover rounded"
+                    />
+                    <div>
+                      <h4 className="text-lg font-semibold">{item.name}</h4>
+                      <p className="text-gray-600">
+                        Price: AED {item.price.toFixed(2)} x {item.quantity || 1}
+                      </p>
+                      <p className="text-gray-500 text-sm">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
               <div className="border-t pt-4 space-y-1 text-right">
-                <p className="text-gray-700">Subtotal: ₹{subtotal.toFixed(2)}</p>
-                <p className="text-gray-700">Delivery Fee: ₹{deliveryFee.toFixed(2)}</p>
-                <p className="text-gray-700">Tax (8%): ₹{tax.toFixed(2)}</p>
-                <p className="font-semibold text-lg">Total: ₹{total.toFixed(2)}</p>
+                <p className="text-gray-700">Subtotal: AED {subtotal.toFixed(2)}</p>
+                <p className="text-gray-700">Delivery Fee: AED {deliveryFee.toFixed(2)}</p>
+                <p className="text-gray-700">Tax (8%): AED {tax.toFixed(2)}</p>
+                <p className="font-semibold text-lg">Total: AED {total.toFixed(2)}</p>
               </div>
             </div>
 
