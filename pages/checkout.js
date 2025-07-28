@@ -1,5 +1,5 @@
 "use client"
-
+import Link from "next/link"
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useAuthStore } from "../lib/auth-store" // auth Zustand store
@@ -281,12 +281,9 @@ export default function CheckoutPage() {
             </div>
 
             <div className="mt-6 text-center">
-              <button
-                onClick={() => router.push("/online-order")}
-                className="text-orange-500 hover:underline font-semibold"
-              >
+              <Link href="/online-order" className="text-orange-500 hover:underline font-semibold">
                 ← Continue Shopping
-              </button>
+              </Link>
             </div>
           </div>
         </div>
