@@ -488,22 +488,21 @@ Strongly recommend it to all. We try to cater to everyone; meatatarians, vegetar
             <div className="content-box">
               <div className="title-box centered">
                 <div className="subtitle">
-                  <span>Delightful Experience</span>
+                  <span>Iftar Pack</span>
                 </div>
                 <div className="pattern-image">
                   <img src="images/icons/separator.svg" alt="" title="" />
                 </div>
-                <h2>Dinner, Event or Party?</h2>
+                <h2>BWCO RAMADAN SPECIAL</h2>
                 <div className="text">
-                  Lorem Ipsum is simply dummy text of the printingand
-                  typesetting industry lorem Ipsum has been the industrys
-                  standard dummy text ever since the when an unknown printer
-                  took a galley of type.
+                  Rejoice in the Blessed Spirit of Ramadan with The Biryaniwalla and Co. sumptuous Iftar.
+
+Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches, or get your private Iftar Parties Catered by us in the comfort of your home, for your loved ones.
                 </div>
               </div>
               <div className="link-box">
                 <a
-                  href="menu-list-1.html"
+                  href="/contact"
                   className="theme-btn btn-style-two clearfix"
                 >
                   <span className="btn-wrap">
@@ -534,7 +533,7 @@ Strongly recommend it to all. We try to cater to everyone; meatatarians, vegetar
         <div className="pattern-image">
           <img src="images/icons/separator.svg" alt="" title="" />
         </div>
-        <h2>Exquisite Restaurant in City</h2>
+        <h2>Exquisite Restaurant in Dubai</h2>
       </div>
       <div className="row clearfix">
         <div className="s-col col-lg-4 col-md-6 col-sm-12">
@@ -550,8 +549,7 @@ Strongly recommend it to all. We try to cater to everyone; meatatarians, vegetar
                 </div>
                 <h4>Door Delivery</h4>
                 <div className="text">
-                  Lorem Ipsum is simply dummy printing and typeset industry
-                  lorem Ipsum has been.
+                  Door Delivery available at your doorstep, fast and hassle-free.
                 </div>
               </div>
             </div>
@@ -562,8 +560,7 @@ Strongly recommend it to all. We try to cater to everyone; meatatarians, vegetar
                 </div>
                 <h4>Fine Dining</h4>
                 <div className="text">
-                  Lorem Ipsum is simply dummy printing and typeset industry
-                  lorem Ipsum has been.
+                  Experience elegant cuisine and impeccable service in a luxurious fine dining setting.
                 </div>
               </div>
             </div>
@@ -582,8 +579,7 @@ Strongly recommend it to all. We try to cater to everyone; meatatarians, vegetar
                 </div>
                 <h4>Outdoor Catering</h4>
                 <div className="text">
-                  Lorem Ipsum is simply dummy printing and typeset industry
-                  lorem Ipsum has been.
+                  Experience exceptional flavors and seamless service with our premium outdoor catering solutions.
                 </div>
               </div>
             </div>
@@ -594,8 +590,7 @@ Strongly recommend it to all. We try to cater to everyone; meatatarians, vegetar
                 </div>
                 <h4>Banquets Hall</h4>
                 <div className="text">
-                  Lorem Ipsum is simply dummy printing and typeset industry
-                  lorem Ipsum has been.
+                  Elegant and spacious banquet hall perfect for weddings, parties, and corporate events.
                 </div>
               </div>
             </div>
