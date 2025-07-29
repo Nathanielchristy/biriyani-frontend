@@ -397,7 +397,7 @@ export default function MenuTabs() {
           </div>
           <div className="link-box">
             <a
-              href="menu-list-1.html"
+              href="/online-order"
               className="theme-btn btn-style-two clearfix"
             >
               <span className="btn-wrap">

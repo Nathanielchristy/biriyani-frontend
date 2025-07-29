@@ -129,7 +129,7 @@ const Header = () => {
                       </ul> */}
                     </li>
                     <li>
-                      <a href="#">About Us</a>
+                      <a href="/about">About Us</a>
                     </li>
                     {/* <li>
                       <a href="#">Our chefs</a>
@@ -166,7 +166,7 @@ const Header = () => {
                       </ul> 
                     </li> */}
                     <li>
-                      <a href="#">Contact</a>
+                      <a href="/contact">Contact</a>
                     </li>
                   </ul>
                 </nav>

@@ -12,43 +12,43 @@ const dishes = [
     name: 'Greek Salad',
     desc: 'Avocados with crab meat, red onion, crab salad red bell pepper...',
     img: '/images/resource/menu-image-11.jpg',
-    price: '$39.00',
-    link: '/menu-list-1',
+    price: 'AED 39.00',
+    // link: '/menu-list-1',
   },
   {
     name: 'Tokusen Wagyu',
     desc: 'Tomatoes, green bell pepper, sliced cucumber onion, olives...',
     img: '/images/resource/menu-image-12.jpg',
-    price: '$45.00',
-    link: '/menu-list-2',
+    price: 'AED 45.00',
+    // link: '/menu-list-2',
   },
   {
     name: 'Butternut Pumpkin',
     desc: 'Avocados with crab meat, red onion, crab salad stuffed bell pepper...',
     img: '/images/resource/menu-image-13.jpg',
-    price: '$15.00',
-    link: '/menu-list-3',
+    price: 'AED 15.00',
+    // link: '/menu-list-3',
   },
   {
     name: 'Opu Fish',
     desc: 'Vegetables, cheeses, ground meats, tomato sauce, seasonings...',
     img: '/images/resource/menu-image-14.jpg',
-    price: '$12.00',
-    link: '/menu-list-4',
+    price: 'AED 12.00',
+    // link: '/menu-list-4',
   },
   {
     name: 'Greek Salad',
     desc: 'Avocados with crab meat, red onion, crab salad red bell pepper...',
     img: '/images/resource/menu-image-11.jpg',
-    price: '$39.00',
-    link: '/menu-list-1',
+    price: 'AED 39.00',
+    // link: '/menu-list-1',
   },
   {
     name: 'Tokusen Wagyu',
     desc: 'Tomatoes, green bell pepper, sliced cucumber onion, olives...',
     img: '/images/resource/menu-image-12.jpg',
-    price: '$45.00',
-    link: '/menu-list-2',
+    price: 'AED 45.00',
+    // link: '/menu-list-2',
   },
 ];
 
@@ -93,17 +93,17 @@ export default function SpecialOfferSection() {
                 >
                   <div className="inner-box">
                     <div className="image">
-                      <Link href={dish.link}>
+                      {/* <Link href={dish.link}> */}
                         <Image
                           src={dish.img}
                           alt={dish.name}
                           width={400}
                           height={300}
                         />
-                      </Link>
+                      {/* </Link> */}
                     </div>
                     <h4>
-                      <Link href={dish.link}>{dish.name}</Link>
+                      {dish.name}
                     </h4>
                     <div className="text desc">{dish.desc}</div>
                     <div className="price">{dish.price}</div>

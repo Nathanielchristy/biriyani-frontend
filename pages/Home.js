@@ -265,14 +265,13 @@ const HomePage = () => {
       </div>
     </header> */}
     <Headers/>
-    {/*End Main Header */}
-    {/*Menu Backdrop*/}
+    
     <div className="menu-backdrop" />
-    {/* Hidden Navigation Bar */}
-    <section className="hidden-bar">
-      {/* Hidden Bar Wrapper */}
-      <div className="inner-box">
-        <div className="cross-icon hidden-bar-closer">
+   
+    {/* <section className="hidden-bar"> */}
+     
+      {/* <div className="inner-box"> */}
+        {/* <div className="cross-icon hidden-bar-closer">
           <span className="far fa-close" />
         </div>
         <div className="logo-box">
@@ -283,9 +282,9 @@ const HomePage = () => {
               title="Biryaniwall & Co. The Pride of Hyderabad India UAE"
             />
           </a>
-        </div>
-        {/* .Side-menu */}
-        <div className="side-menu">
+        </div> */}
+      
+        {/* <div className="side-menu">
           <ul className="navigation clearfix">
             <li className="current">
               <a href="/index">Home</a>
@@ -349,35 +348,35 @@ const HomePage = () => {
             </li>
           </ul>
         </div>
-        {/* /.Side-menu */}
-        <h2>Visit Us</h2>
-        <ul className="info">
-          <li>
+         */}
+        {/* <h2>Visit Us</h2> */}
+        {/* <ul className="info"> */}
+          {/* <li>
             Restaurant St, Delicious City, <br />
             London 9578, UK
           </li>
           <li>Open: 9.30 am - 2.30pm</li>
           <li>
             <a href="mailto:booking@domainame.com">booking@domainame.com</a>
-          </li>
-        </ul>
-        <div className="separator">
+          </li> */}
+        {/* </ul> */}
+        {/* <div className="separator">
           <span />
-        </div>
-        <div className="booking-info">
+        </div> */}
+        {/* <div className="booking-info">
           <div className="bk-title">Booking request</div>
           <div className="bk-no">
             <a href="tel:+88-123-123456">+88-123-123456</a>
           </div>
-        </div>
-      </div>
-      {/* / Hidden Bar Wrapper */}
-    </section>
+        </div> */}
+      {/* </div> */}
+    
+    {/* </section> */}
     {/* / Hidden Bar */}
     {/*Info Back Drop*/}
     <div className="info-back-drop" />
     {/* Hidden Bar */}
-    <section className="info-bar">
+    {/* <section className="info-bar">
       <div className="inner-box">
         <div className="cross-icon">
           <span className="far fa-close" />
@@ -415,7 +414,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
     {/*End Hidden Bar */}
     {/* Banner Section */}
    
@@ -452,12 +451,12 @@ const HomePage = () => {
               data-wow-delay="0ms"
             >
               <div className="image">
-                <a href="menu-list-1.html">
+                <a href="/online-order">
                   <img src="images/resource/biryani.png" alt="BWCO Biryani" />
                 </a>
               </div>
               <h3>
-                <a href="menu-list-1.html">BWCO Biryani</a>
+                <a href="/online-order">BWCO Biryani</a>
               </h3>
               <div className="more-link">
                 <a href="/online-order">view menu</a>
@@ -472,12 +471,12 @@ const HomePage = () => {
               data-wow-delay="300ms"
             >
               <div className="image">
-                <a href="menu-list-2.html">
+                <a href="/online-order">
                   <img src="images/resource/dessert.png" alt="Dessert" />
                 </a>
               </div>
               <h3>
-                <a href="menu-list-2.html">Dessert</a>
+                <a href="/online-order">Dessert</a>
               </h3>
               <div className="more-link">
                 <a href="/online-order">view menu</a>
@@ -540,7 +539,7 @@ const HomePage = () => {
                 </div>
                 <div className="link-box">
                   <a
-                    href="about.html"
+                    href="/about"
                     className="theme-btn btn-style-two clearfix"
                   >
                     <span className="btn-wrap">
@@ -635,7 +634,7 @@ const HomePage = () => {
               </div> */}
               <div className="link-box">
                 <a
-                  href="menu-list-1.html"
+                  href="/online-order"
                   className="theme-btn btn-style-two clearfix"
                 >
                   <span className="btn-wrap">
