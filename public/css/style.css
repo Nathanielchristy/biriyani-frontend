@@ -32,7 +32,7 @@
 ***/
 
 .main-header{
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   width: 100%;
@@ -51,9 +51,9 @@
   top: -51px;
 }
 
-.fixed-header.header-up{
+ .fixed-header.header-up{
   top: -175px;
-}
+} 
 
 .main-header .auto-container{
   max-width: 1780px;
@@ -153,12 +153,12 @@
   -o-transition: all 300ms ease;
 }
 
-.fixed-header .header-upper{
+ .fixed-header .header-upper{
   position: relative;
-  /*top: 0;*/
-  background: #202020;
-  border-bottom-color: rgba(0,0,0,0.15);
-}
+  top: 0;
+  background: #202020; 
+   border-bottom-color: rgba(0,0,0,0.15); 
+ } 
 
 .header-two.fixed-header .header-upper{
   background: #ffffff;
