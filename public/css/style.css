@@ -1362,7 +1362,7 @@ body.visible-sidebar{
   position: relative;
   text-transform: uppercase;
   font-weight: 700;
-  /* color:black; */
+  color:white;
   /* color: var(--main-color); */
   font-size: var(--font-12);
   letter-spacing: 0.40em;
@@ -1448,6 +1448,7 @@ body.visible-sidebar{
 
 .banner-section .swiper-slide-active .text{
     opacity:1;
+    color:white;
     visibility: visible;
     -webkit-transform:translate(0);
     -ms-transform:translate(0);

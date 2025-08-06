@@ -57,7 +57,7 @@ export default function BannerSlider() {
                             className="theme-btn btn-style-two clearfix"
                           >
                             <span className="btn-wrap">
-                              <span className="text-one">view our menu</span>
+                              <span className="text-one1">view our menu</span>
                               <span className="text-two">view our menu</span>
                             </span>
                           </a>
@@ -107,7 +107,7 @@ export default function BannerSlider() {
                             className="theme-btn btn-style-two clearfix"
                           >
                             <span className="btn-wrap">
-                              <span className="text-one">view our menu</span>
+                              <span className="text-one1">view our menu</span>
                               <span className="text-two">view our menu</span>
                             </span>
                           </a>

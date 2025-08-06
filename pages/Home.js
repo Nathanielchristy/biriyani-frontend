@@ -151,7 +151,7 @@ const HomePage = () => {
                   <a href="tel:+97143395123">+97143395123</a>
                 </div>
                  <div className="bk-no">
-                  <a href="tel:+97143395123">+97143395123</a>
+                  <a href="tel:600547297">600547297</a>
                 </div>
                 <div className="link-box">
                   <a
