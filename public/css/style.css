@@ -5833,9 +5833,9 @@ body.visible-sidebar{
   position: relative;
   float: right;
   font-size: var(--font-22);
-  color: var(--main-color);
+  color: rgb(210 172 103);;
   padding-left: var(--padding-left-15);
-  background-color:var(--color-four);
+  /* background-color:var(--color-four); */
 }
 
 .menu-two .dish-block .desc{
