@@ -9,10 +9,10 @@ import 'swiper/css/autoplay';
 
 const dishes = [
   {
-    name: 'Greek Salad',
-    desc: 'Avocados with crab meat, red onion, crab salad red bell pepper...',
-    img: '/images/resource/menu-image-11.jpg',
-    price: 'AED 39.00',
+    name: 'PANEER LAHORI',
+    desc: 'Paneer Lahori is a rich, creamy North Indian cottage cheese curry.',
+    img: '/images/resource/menu-image11.png',
+    price: 'AED 29.4',
     // link: '/menu-list-1',
   },
   {

@@ -1,7 +1,7 @@
-/* Delici - Restaurants HTML Template */
 
 
-@import url('../../../../../../css2');
+
+/* @import url('../../../../../../css2'); */
 
 /*
     font-family: 'DM Sans', sans-serif;
@@ -32,13 +32,17 @@
   --color-two: rgb(14,13,11);
 
   /* #595653 in decimal RGB */
-  --color-three: rgb(89,86,83);
+  /* --color-three: rgb(89,86,83); */
+
+   --color-three: rgb(25, 25, 25);
 
   /* #171819 in decimal RGB */
   --color-four: rgb(23,24,25);
 
   /* #0e0d0c in decimal RGB */
-  --color-five: rgb(14,13,12);
+  /* --color-five: #543B2B; */
+  --color-five: #d2ab68;
+  /* --color-five: rgb(14,13,12); */
 
   /* #1a1b1c in decimal RGB */
   --color-six: rgb(26,27,28);
@@ -48,6 +52,8 @@
 
   /* #121111 in decimal RGB */
   --color-eight: rgb(18,17,17);
+
+  --foot-bg: #5c5c5c9e
   
   /* #ffffff in decimal RGBA */
   --white-color-opacity:rgba(255,255,255,0.80);
@@ -83,7 +89,7 @@
   --black-color-opacity-five:rgba(0,0,0,0.10);
   
   /* #ffffff in decimal RGB */
-  --text-color:rgb(255,255,255);
+  --text-color:rgb(56, 56, 56);
   
   /* #010101 Heading Color in decimal RGB */
   --heading-color:rgb(255,255,255);
@@ -442,7 +448,7 @@ body {
     font-family: var(--font-family-DMsans);
     font-size:var(--font-16);
     color:var(--text-color);
-    background: var(--body-bg-color);
+    /* background: var(--body-bg-color); */
     line-height:1.85em;
     font-weight:400;
     -webkit-font-smoothing: antialiased;
@@ -462,7 +468,9 @@ a{
 }
 
 section{
-    background-color: var(--body-bg-color);
+    background-color: #d2ab68;
+    /* background-color: #543B2B; */
+    /* background-color: var(--body-bg-color); */
 }
 
 button,
@@ -471,11 +479,30 @@ a:hover,a:focus,a:visited{
     outline:none !important;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h2{
     position:relative;
     margin:0px 0px;
     background:none;
     line-height: 1.20em;
+    color:black; 
+      font-family:var(--font-family-Forum);
+}
+ h3{
+    color:black; 
+      font-family:var(--font-family-Forum); 
+ }
+
+ h5{
+    color: black;
+     font-family:var(--font-family-Forum);
+ }
+
+h1,h4,h6 {
+    position:relative;
+    margin:0px 0px;
+    background:none;
+    line-height: 1.20em;
+    /* color:black; */
     color:var(--heading-color);
     font-family:var(--font-family-Forum);
 }
@@ -730,7 +757,8 @@ figure{
 .btn-style-two .btn-wrap .text-one{
     position: relative;
     display: block;
-    color: var(--main-color);
+    color:black;
+    /* color: var(--main-color); */
     transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;

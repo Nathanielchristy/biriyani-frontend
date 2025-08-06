@@ -354,10 +354,10 @@ export default function MenuTabs() {
   return (
     <section className="menu-section">
       <div className="left-bg">
-        <img src="images/background/bg-5.png" alt="bg-left" />
+        {/* <img src="images/background/bg-5.png" alt="bg-left" /> */}
       </div>
       <div className="right-bg">
-        <img src="images/background/bg-6.png" alt="bg-right" />
+        {/* <img src="images/background/bg-6.png" alt="bg-right" /> */}
       </div>
       <div className="auto-container">
         <div className="title-box centered">

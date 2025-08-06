@@ -261,19 +261,16 @@ Strongly recommend it to all. We try to cater to everyone; meatatarians, vegetar
             {/* <div className="author">andrew joe - founder</div> */}
             <div className="video-box">
               <div className="image">
-                <a
-                  href="https://www.youtube.com/watch?v=ZETY_l3GVQg"
-                  className="lightbox-image"
-                >
+               
                   <img src="images/resource/about-image-1.jpg" alt="" />
-                </a>
+                
                 {/* <a
                   href="https://www.youtube.com/watch?v=ZETY_l3GVQg"
                   className="lightbox-image play-btn"
                 > */}
-                  <span className="icon fal fa-play">
+                  {/* <span className="icon fal fa-play">
                     <i className="ripple" />
-                  </span>
+                  </span> */}
                 {/* </a> */}
               </div>
             </div>
@@ -287,7 +284,7 @@ Strongly recommend it to all. We try to cater to everyone; meatatarians, vegetar
             data-wow-delay="300ms"
           >
             <div className="image">
-              <img src="images/resource/about-image-2.jpg" alt="" />
+              <img src="images/resource/about-image1.png" alt="about" />
             </div>
           </div>
         </div>
@@ -468,7 +465,7 @@ Strongly recommend it to all. We try to cater to everyone; meatatarians, vegetar
           >
             <div
               className="image-layer"
-              style={{ backgroundImage: "url(images/background/image-6.jpg)" }}
+              style={{ backgroundImage: "url(images/background/image6.png)" }}
             />
             <div className="image">
               <img src="images/background/handi1.png" alt="" />
@@ -802,7 +799,7 @@ Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches,
           <span>why choose us</span>
         </div>
         <div className="pattern-image">
-          <img src="images/icons/separator.svg" alt="" title="" />
+          <img src="images/icons/separator.svg" alt="separator" title="" />
         </div>
         <h2>Our Strength</h2>
       </div>
@@ -815,7 +812,7 @@ Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches,
             data-wow-delay="0ms"
           >
             <div className="image-box">
-              <img src="images/resource/featured-4.jpg" alt="" />
+              <img src="images/resource/feature6.png" alt="" />
             </div>
             <div className="over-box">
               <div className="icon-box">
@@ -833,7 +830,7 @@ Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches,
             data-wow-delay="300ms"
           >
             <div className="image-box">
-              <img src="images/resource/featured-5.jpg" alt="" />
+              <img src="images/resource/feature1.png" alt="" />
             </div>
             <div className="over-box">
               <div className="icon-box">
@@ -869,7 +866,7 @@ Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches,
             data-wow-delay="900ms"
           >
             <div className="image-box">
-              <img src="images/resource/featured-7.jpg" alt="" />
+              <img src="images/resource/feature2.png" alt="" />
             </div>
             <div className="over-box">
               <div className="icon-box">
@@ -883,11 +880,11 @@ Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches,
     </div>
   </section>
   {/*Gallery Section*/}
-  <section className="image-gallery">
+  {/* <section className="image-gallery">
     <div className="carousel-box">
       <div className="auto-container">
         <div className="image-gallery-slider owl-theme owl-carousel">
-          {/*Slide Item*/}
+        
           <div className="gallery-block">
             <div className="image">
               <a
@@ -899,7 +896,7 @@ Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches,
               </a>
             </div>
           </div>
-          {/*Slide Item*/}
+        
           <div className="gallery-block">
             <div className="image">
               <a
@@ -911,7 +908,7 @@ Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches,
               </a>
             </div>
           </div>
-          {/*Slide Item*/}
+         
           <div className="gallery-block">
             <div className="image">
               <a
@@ -923,7 +920,7 @@ Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches,
               </a>
             </div>
           </div>
-          {/*Slide Item*/}
+        
           <div className="gallery-block">
             <div className="image">
               <a
@@ -935,7 +932,7 @@ Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches,
               </a>
             </div>
           </div>
-          {/*Slide Item*/}
+         
           <div className="gallery-block">
             <div className="image">
               <a
@@ -947,7 +944,7 @@ Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches,
               </a>
             </div>
           </div>
-          {/*Slide Item*/}
+         
           <div className="gallery-block">
             <div className="image">
               <a
@@ -962,8 +959,8 @@ Please book now for our Iftar Buffet at just AED 49 at all our dine-in branches,
         </div>
       </div>
     </div>
-  </section>
-  {/*Main Footer*/}
+  </section> */}
+ 
    <Footer/>
 </div>
     </>
