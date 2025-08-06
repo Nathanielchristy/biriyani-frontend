@@ -22,7 +22,8 @@ const OnlineOrder = () => {
   const [menuItems, setMenuItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  const [selectedCategory, setSelectedCategory] = useState("All")
+  const [categories, setCategories] = useState([])
+  const [selectedCategory, setSelectedCategory] = useState("Soup")
 
   useEffect(() => {
     if (isAuthenticated && redirectToCheckout) {
@@ -30,11 +31,33 @@ const OnlineOrder = () => {
       setRedirectToCheckout(false)
     }
   }, [isAuthenticated, redirectToCheckout, router, setRedirectToCheckout])
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch("https://biriyanidev.onrender.com/api/menu/categories");
+        const data = await res.json();
+        setCategories(data);
 
+        // Set default category to "Soup" or the first one
+        if (data.includes("Soup")) {
+          setSelectedCategory("Soup");
+        } else if (data.length > 0) {
+          setSelectedCategory(data[0]);
+        }
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
   useEffect(() => {
     const fetchMenu = async () => {
+      setLoading(true)
       try {
-        const res = await fetch("https://biriyanidev.onrender.com/api/menu/")
+        const res = await fetch(
+          `https://biriyanidev.onrender.com/api/menu?category=${encodeURIComponent(selectedCategory)}`
+        )
         if (!res.ok) throw new Error("Failed to fetch menu")
         const data = await res.json()
         setMenuItems(data)
@@ -46,15 +69,16 @@ const OnlineOrder = () => {
     }
 
     fetchMenu()
-  }, [])
-  const uniqueCategories = [...new Set(menuItems.map((item) => item.category))]
+  }, [selectedCategory])
 
-  // Find index of "Soup"
-  const soupIndex = uniqueCategories.indexOf("Soup")
+  // const uniqueCategories = [...new Set(menuItems.map((item) => item.category))]
 
-  // Categories start from "Soup" onward (if found), else all categories
-  const categories =
-    soupIndex !== -1 ? uniqueCategories.slice(soupIndex) : uniqueCategories
+  // // Find index of "Soup"
+  // const soupIndex = uniqueCategories.indexOf("Soup")
+
+  // // Categories start from "Soup" onward (if found), else all categories
+  // const categories =
+  //   soupIndex !== -1 ? uniqueCategories.slice(soupIndex) : uniqueCategories
 
   // const categories = ["All", ...new Set(menuItems.map((item) => item.category))]
 
@@ -72,42 +96,42 @@ const OnlineOrder = () => {
   //   }
   // }
 
-  useEffect(() => {
-    if (categories.length && !categories.includes(selectedCategory)) {
-      setSelectedCategory(categories[0])
-    }
-  }, [categories, selectedCategory])
+  // useEffect(() => {
+  //   if (categories.length && !categories.includes(selectedCategory)) {
+  //     setSelectedCategory(categories[0])
+  //   }
+  // }, [categories, selectedCategory])
 
   const [itemCounts, setItemCounts] = useState({})
 
-const incrementCount = (id) => {
-  setItemCounts((prev) => ({
-    ...prev,
-    [id]: (prev[id] || 1) + 1,
-  }))
-}
-
-const decrementCount = (id) => {
-  setItemCounts((prev) => ({
-    ...prev,
-    [id]: prev[id] > 1 ? prev[id] - 1 : 1,
-  }))
-}
-
-const handleAddToCart = (item, quantity = 1) => {
-  const processedItem = {
-    ...item,
-    price: Number.parseFloat(item.price),
-    quantity,
+  const incrementCount = (id) => {
+    setItemCounts((prev) => ({
+      ...prev,
+      [id]: (prev[id] || 1) + 1,
+    }))
   }
-  addToCart(processedItem)
-  if (isAuthenticated) {
-    router.push("/checkout")
-  } else {
-    setRedirectToCheckout(true)
-    setShowAuthModal(true)
+
+  const decrementCount = (id) => {
+    setItemCounts((prev) => ({
+      ...prev,
+      [id]: prev[id] > 1 ? prev[id] - 1 : 1,
+    }))
   }
-}
+
+  const handleAddToCart = (item, quantity = 1) => {
+    const processedItem = {
+      ...item,
+      price: Number.parseFloat(item.price),
+      quantity,
+    }
+    addToCart(processedItem)
+    if (isAuthenticated) {
+      router.push("/checkout")
+    } else {
+      setRedirectToCheckout(true)
+      setShowAuthModal(true)
+    }
+  }
 
 
   // const handleAddToCart = (item) => {
@@ -124,10 +148,10 @@ const handleAddToCart = (item, quantity = 1) => {
   //   }
   // }
 
-  const filteredItems =
-    selectedCategory === "All"
-      ? menuItems
-      : menuItems.filter((item) => item.category === selectedCategory)
+  // const filteredItems =
+  //   selectedCategory === "All"
+  //     ? menuItems
+  //     : menuItems.filter((item) => item.category === selectedCategory)
 
   return (
     <>
@@ -205,9 +229,9 @@ const handleAddToCart = (item, quantity = 1) => {
 
 
 
-<div className="row clearfix">
-                    {filteredItems.length > 0 ? (
-                      filteredItems.map((item) => (
+                  <div className="row clearfix">
+                    {menuItems.length > 0 ? (
+                      menuItems.map((item) => (
                         <div
                           className="menu-col col-lg-6 col-md-12 col-sm-12"
                           key={item._id}
@@ -232,33 +256,33 @@ const handleAddToCart = (item, quantity = 1) => {
                                 <p>{item.description}</p>
                               </div>
                               <div
-        className="quantity-control"
-        style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "10px" }}
-      >
-       
+                                className="quantity-control"
+                                style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "10px" }}
+                              >
 
-        <Button
-          onClick={() => handleAddToCart(item, itemCounts[item._id] || 1)}
-          className="bg-[#D2AC67] hover:bg-orange-600 text-white"
-        >
-          Add to Cart 
 
-          
-        </Button>
-         <button
-          onClick={() => decrementCount(item._id)}
-          style={{ padding: "5px 10px", cursor: "pointer" }}
-        >
-          -
-        </button>
-        <span>{itemCounts[item._id] || 1}</span>
-        <button
-          onClick={() => incrementCount(item._id)}
-          style={{ padding: "5px 10px", cursor: "pointer" }}
-        >
-          +
-        </button>
-        </div>
+                                <Button
+                                  onClick={() => handleAddToCart(item, itemCounts[item._id] || 1)}
+                                  className="bg-[#D2AC67] hover:bg-orange-600 text-white"
+                                >
+                                  Add to Cart
+
+
+                                </Button>
+                                <button
+                                  onClick={() => decrementCount(item._id)}
+                                  style={{ padding: "5px 10px", cursor: "pointer" }}
+                                >
+                                  -
+                                </button>
+                                <span>{itemCounts[item._id] || 1}</span>
+                                <button
+                                  onClick={() => incrementCount(item._id)}
+                                  style={{ padding: "5px 10px", cursor: "pointer" }}
+                                >
+                                  +
+                                </button>
+                              </div>
                               {/* <Button
                                 onClick={() => handleAddToCart(item)}
                                 className="bg-[#D2AC67] hover:bg-orange-600 text-white"
@@ -275,9 +299,9 @@ const handleAddToCart = (item, quantity = 1) => {
                       </p>
                     )}
                   </div>
-               
 
-        {/* Modal & Footer */}
+
+                  {/* Modal & Footer */}
                   {/* <div className="row clearfix">
                     {filteredItems.map((item) => (
                       <div className="menu-col col-lg-6 col-md-12 col-sm-12" key={item._id}>
