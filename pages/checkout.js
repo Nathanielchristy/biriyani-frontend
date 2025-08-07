@@ -11,15 +11,14 @@ import { User, MapPin, CreditCard, ArrowLeft } from "lucide-react"
 
 export default function CheckoutPage() {
   const router = useRouter()
-  const { isAuthenticated, user } = useAuthStore()
+  const { isAuthenticated, user, signOut  } = useAuthStore()
   const { cartItems, clearCart } = useCartStore()
   const [hydrated, setHydrated] = useState(false)
-
   const [orderData, setOrderData] = useState({
     fullName: "",
     email: "",
     phone: "",
-    address: "",
+    street: "",
     city: "",
     zipCode: "",
     cardNumber: "",
@@ -66,7 +65,7 @@ export default function CheckoutPage() {
       !orderData.fullName ||
       !orderData.email ||
       !orderData.phone ||
-      !orderData.address ||
+      !orderData.street ||
       !orderData.city ||
       !orderData.zipCode ||
       !orderData.cardNumber ||
@@ -84,8 +83,15 @@ export default function CheckoutPage() {
   }
 
   const handleBack = () => {
-    router.push("/")
+    router.push("/online-order")
   }
+
+  const handleLogout = () => {
+  signOut()
+  clearCart()
+
+  router.push("/") // Redirect to homepage or login page
+}
 
   if (!hydrated || !isAuthenticated || !cartItems) return null
 
@@ -105,8 +111,14 @@ export default function CheckoutPage() {
             Back
           </Button>
           <h2 className="text-2xl font-semibold text-gray-900">Checkout</h2>
+        
         </div>
-
+ <div className="text-2xl font-semibold text-gray-900 text-right mt-[-50px]">
+    <Button  onClick={handleLogout} className="mr-4 text-gray-600 hover:text-gray-900 ">
+            
+            Logout
+          </Button>
+ </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Left: Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -161,7 +173,7 @@ export default function CheckoutPage() {
                   <Label htmlFor="address">Street Address</Label>
                   <Input
                     id="address"
-                    value={orderData.address}
+                    value={orderData.street}
                     onChange={(e) => handleInputChange("address", e.target.value)}
                     placeholder="123 Main Street"
                     required

@@ -1,6 +1,24 @@
 import React from 'react'
+import Link from 'next/link'
+import LogoutButton from './Logout'
+import SignupModal from './sign_in'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import { useAuthStore } from "../lib/auth-store";
+
+
 
 const Header = () => {
+   const router = useRouter();
+   const {
+    isAuthenticated,
+    user,
+    setShowAuthModal,
+  } = useAuthStore();
+  // const { isAuthenticated,
+  //   setShowAuthModal, } = useAuthStore();
+  // const [showSignIn, setShowSignIn] = useState(false);
+   
   return (
     
       <header className="main-header header-down">
@@ -21,15 +39,15 @@ const Header = () => {
             <div className="top-right clearfix">
               <ul className="top-info clearfix">
                 <li>
-                  <a href="tel:+11234567890">
+                  <Link href="tel:+11234567890">
                     <i className="icon far fa-phone" /> +97143395123
-                  </a>
+                </Link>
                 </li>
                 <li>
-                  <a href="mailto:booking@restaurant.com">
+                  <Link href="mailto:booking@restaurant.com">
                     <i className="icon far fa-envelope" />{" "}
                     booking@biryaniwallaandco.com
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -44,13 +62,13 @@ const Header = () => {
             {/*Logo*/}
             <div className="logo-box">
               <div className="logo">
-                <a href="/" title="Biryaniwalla & Co., Al Nahda 2, Hor Al Anz, Hamriya Port, Al Barsha, Motor City, Discovery Gardens, Business Bay, Al Fahidi, Al Karama, Dubai">
+                <Link href="/" title="Biryaniwalla & Co., Al Nahda 2, Hor Al Anz, Hamriya Port, Al Barsha, Motor City, Discovery Gardens, Business Bay, Al Fahidi, Al Karama, Dubai">
                   <img
                     src="images/logo.png"
                     alt="Biryaniwalla Logo"
                     title="Biryaniwalla & Co., Al Nahda 2, Hor Al Anz, Hamriya Port, Al Barsha, Motor City, Discovery Gardens, Business Bay, Al Fahidi, Al Karama, Dubai | About"
                   />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="nav-box clearfix">
@@ -59,115 +77,35 @@ const Header = () => {
                 <nav className="main-menu">
                   <ul className="navigation clearfix">
                     <li className="current">
-                      <a href="/">Home</a>
+                      <Link href="/">Home</Link>
                     </li>
-                    <li className="dropdown has-mega-menu">
-                      <a href="/online-order">Menus</a>
-                      {/* <ul>
-                        <li>
-                          <div className="mega-menu">
-                            <div className="menu-inner">
-                              <div className="auto-container">
-                                <div className="row clearfix">
-                                  <div className="menu-block col-lg-3 col-md-6 col-sm-6">
-                                    <div className="image">
-                                      <a href="menu-list-1.html">
-                                        <img
-                                          src="images/resource/menu-image-1.jpg"
-                                          alt=""
-                                        />
-                                      </a>
-                                    </div>
-                                    <div className="title">
-                                      <a href="menu-list-1.html">Menu list 1</a>
-                                    </div>
-                                  </div>
-                                  <div className="menu-block col-lg-3 col-md-6 col-sm-6">
-                                    <div className="image">
-                                      <a href="menu-list-2.html">
-                                        <img
-                                          src="images/resource/menu-image-2.jpg"
-                                          alt=""
-                                        />
-                                      </a>
-                                    </div>
-                                    <div className="title">
-                                      <a href="menu-list-2.html">Menu list 2</a>
-                                    </div>
-                                  </div>
-                                  <div className="menu-block col-lg-3 col-md-6 col-sm-6">
-                                    <div className="image">
-                                      <a href="menu-list-3.html">
-                                        <img
-                                          src="images/resource/menu-image-3.jpg"
-                                          alt=""
-                                        />
-                                      </a>
-                                    </div>
-                                    <div className="title">
-                                      <a href="menu-list-3.html">Menu list 3</a>
-                                    </div>
-                                  </div>
-                                  <div className="menu-block col-lg-3 col-md-6 col-sm-6">
-                                    <div className="image">
-                                      <a href="menu-list-4.html">
-                                        <img
-                                          src="images/resource/menu-image-4.jpg"
-                                          alt=""
-                                        />
-                                      </a>
-                                    </div>
-                                    <div className="title">
-                                      <a href="menu-list-4.html">Menu list 4</a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                      </ul> */}
+                  
+                     <li>
+                      <Link href="/online-order">Menu</Link>
                     </li>
                     <li>
-                      <a href="/about">About Us</a>
+                      <Link href="/about">About Us</Link>
                     </li>
-                    {/* <li>
-                      <a href="#">Our chefs</a>
-                    </li> */}
-                    {/* <li className="dropdown">
-                      <a href="#">Pages</a>
-                       <ul>
-                        <li>
-                          <a href="#">Dropdown Menu 1</a>
-                        </li>
-                        <li>
-                          <a href="#">Dropdown Menu 2</a>
-                        </li>
-                        <li>
-                          <a href="#">Dropdown Menu 3</a>
-                        </li>
-                        <li className="dropdown">
-                          <a href="#">Dropdown Menu 4</a>
-                          <ul>
-                            <li>
-                              <a href="#">Dropdown Menu level 2</a>
-                            </li>
-                            <li>
-                              <a href="#">Dropdown Menu level 2</a>
-                            </li>
-                            <li>
-                              <a href="#">Dropdown Menu Level 3</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="#">Dropdown Lorem 5</a>
-                        </li>
-                      </ul> 
-                    </li> */}
+                   
                     <li>
-                      <a href="/contact">Contact</a>
+                      <Link href="/contact">Contact</Link>
                     </li>
+
+                    <li>
+                      {isAuthenticated ? (
+          <>
+            <button onClick={() => router.push("/profile_page")}>
+              👤 {user?.name || "Profile"}
+            </button>
+            <LogoutButton />
+          </>
+        ) : (
+          <>
+          <button onClick={() => setShowAuthModal(true) }>🔐 Sign In</button>
+                        </>
+        )}
+                    </li>
+                   
                   </ul>
                 </nav>
                 {/* Main Menu End*/}
@@ -175,7 +113,7 @@ const Header = () => {
               {/*Nav Outer End*/}
               <div className="links-box clearfix">
                 <div className="link link-btn">
-                  <a
+                  <Link
                     href="/online-order"
                     className="theme-btn btn-style-one clearfix"
                   >
@@ -183,7 +121,7 @@ const Header = () => {
                       <span className="text-one">Online Order</span>
                       <span className="text-two">Online Order</span>
                     </span>
-                  </a>
+                  </Link>
                 </div>
                 {/* <div className="link info-toggler">
                   <button className="info-btn">
@@ -209,6 +147,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+        {setShowAuthModal && <SignupModal />}
     </header>
     
   )
