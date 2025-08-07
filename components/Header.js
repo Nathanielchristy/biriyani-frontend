@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import LogoutButton from './Logout'
-import SignupModal from './sign_in'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useAuthStore } from "../lib/auth-store";
@@ -147,7 +146,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-        {setShowAuthModal && <SignupModal />}
     </header>
     
   )
