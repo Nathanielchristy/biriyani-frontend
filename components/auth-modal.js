@@ -65,7 +65,7 @@ export default function AuthModal() {
   }
 
   return (
-    <div className="fixed top-[130px] left-0 right-0 bottom-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center">
+    <div className="fixed top-[130px] left-0 right-0 bottom-0  z-50 flex items-center justify-center">
       <div className="relative mt-[90px] w-[800px] h-[500px] bg-black rounded-2xl border border-gray-800 overflow-hidden">
         <button
           onClick={handleClose}

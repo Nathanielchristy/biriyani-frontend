@@ -336,8 +336,8 @@
    /* font-family: 'Font Awesome 6 Pro'; */
    font-size: var(--font-12);
   color: var(--white-color);
-  padding-top: var(--padding-top-20);
-  padding-bottom: var(--padding-bottom-20);
+  /* padding-top: var(--padding-top-20);
+  padding-bottom: var(--padding-bottom-20); */
   font-weight:700;
   line-height:30px;
   letter-spacing: 0.15em;

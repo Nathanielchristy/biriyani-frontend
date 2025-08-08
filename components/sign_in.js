@@ -112,7 +112,7 @@ export default function SignupModal({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={handleBackdropClick}>
       {/* Backdrop with blur */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+      <div className="absolute inset-0" />
 
       {/* Modal Container */}
       <div className="relative w-full max-w-md animate-in fade-in-0 zoom-in-95 duration-300">

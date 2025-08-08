@@ -5,7 +5,40 @@ import SpecialOfferSection from '../components/SpecialOffer'
 import Headers from '../components/Header'
 import Footer from '../components/Footer'
 
+
+
+
 const HomePage = () => {
+const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value.trim();
+    const phone = e.target.phone.value.trim();
+    const persons = e.target.persons.value;
+    const date = e.target.date.value.trim();
+    const time = e.target.time.value;
+    const message = e.target.message.value.trim();
+
+    const whatsappNumber = "+919047011760"; // Your number without + sign
+
+    const whatsappMsg = `Hello, I would like to book a table:
+Name: ${name}
+Phone: ${phone}
+Persons: ${persons}
+Date: ${date}
+Time: ${time}
+Message: ${message}`;
+
+    const encodedMsg = encodeURIComponent(whatsappMsg);
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    const whatsappURL = isMobile
+      ? `https://wa.me/${whatsappNumber}?text=${encodedMsg}`
+      : `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMsg}`;
+
+    window.open(whatsappURL, "_blank");
+  };
+
   return (
    <>
    
@@ -385,13 +418,13 @@ const HomePage = () => {
                   </div>
                 </div>
                 <div className="default-form reservation-form">
-                  <form method="post" action="index.html">
+                  <form onSubmit={handleSubmit}>
                     <div className="row clearfix">
                       <div className="form-group col-lg-6 col-md-6 col-sm-12">
                         <div className="field-inner">
                           <input
                             type="text"
-                            name="fieldname"
+                            name="name"
                             defaultValue=""
                             placeholder="Your Name"
                             required=""
@@ -402,7 +435,7 @@ const HomePage = () => {
                         <div className="field-inner">
                           <input
                             type="text"
-                            name="fieldname"
+                            name="phone"
                             defaultValue=""
                             placeholder="Phone Number"
                             required=""
@@ -412,7 +445,7 @@ const HomePage = () => {
                       <div className="form-group col-lg-4 col-md-6 col-sm-12">
                         <div className="field-inner">
                           <span className="alt-icon far fa-user" />
-                          <select className="l-icon">
+                          <select className="l-icon" name="persons" >
                             <option>1 Person</option>
                             <option>2 Person</option>
                             <option>3 Person</option>
@@ -430,7 +463,7 @@ const HomePage = () => {
                           <input
                             className="l-icon datepicker"
                             type="text"
-                            name="fieldname"
+                           name="date"
                             defaultValue=""
                             placeholder="DD-MM-YYYY"
                             required=""
@@ -442,7 +475,7 @@ const HomePage = () => {
                       <div className="form-group col-lg-4 col-md-12 col-sm-12">
                         <div className="field-inner">
                           <span className="alt-icon far fa-clock" />
-                          <select className="l-icon">
+                          <select className="l-icon"   name="time" >
                             <option>08 : 00 am</option>
                             <option>09 : 00 am</option>
                             <option>10 : 00 am</option>
@@ -465,7 +498,7 @@ const HomePage = () => {
                       <div className="form-group col-lg-12 col-md-12 col-sm-12">
                         <div className="field-inner">
                           <textarea
-                            name="fieldname"
+                            name="message" 
                             placeholder="Message"
                             required=""
                             defaultValue={""}

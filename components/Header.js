@@ -102,18 +102,19 @@ const Header = () => {
                     </li>
 
                     <li>
-                      {isAuthenticated ? (
+                       {isAuthenticated ? (
           <>
-            <button className="mt-2 sign_button text-white px-4 py-2 rounded" onClick={() => router.push("/profile_page")}>
+           <Link href=""><button className=" sign_button text-white rounded" onClick={() => router.push("/profile_page")}>
                {user?.name || "User Account"}
-            </button>
-            <LogoutButton onClick={handleLogout}/>
+            </button> 
+          <LogoutButton onClick={handleLogout}/></Link>
           </>
         ) : (
           <>
-          <button  className="mt-3 sign_button text-white px-4 py-2 rounded" onClick={() => setShowAuthModal(true) }>Sign In</button>
+          <Link href=""><button  className=" sign_button text-white  rounded" onClick={() => setShowAuthModal(true) }>Sign In</button></Link>
                         </>
         )}
+        
                     </li>
                    
                   </ul>
