@@ -6768,7 +6768,7 @@ body.visible-sidebar{
 
 .contact-page{
   position: relative;
-  background-color: #ffffff;
+  background-color: #FEFAC9;
   /* background-color: #f7ebc6; */
   
   /* background: var(--color-five); */
@@ -6913,7 +6913,7 @@ body.visible-sidebar{
 
 .c-page-form-box {
   position: relative;
-  background-color: #fbef4f4e;
+  /* background-color: #fbef4f4e; */
   padding: 60px;
   margin-top: var(--margin-top-40);
   margin-bottom: var(--margin-bottom-100);
