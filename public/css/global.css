@@ -946,7 +946,7 @@ img{
     height: 56px;
     width: 100%;
     font-size: var(--font-16);
-    color: var(--text-color);
+    color: rgb(169 165 165);
     line-height: 34px;
     font-weight: 400;
     padding: 10px 20px;

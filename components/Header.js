@@ -104,14 +104,17 @@ const Header = () => {
                     <li>
                        {isAuthenticated ? (
           <>
-           <Link href=""><button className=" sign_button text-white rounded" onClick={() => router.push("/profile_page")}>
+          <div className='flex gap-6'> 
+             <Link href=""><button className="sign_button_user text-white rounded" onClick={() => router.push("/profile_page")}>
                {user?.name || "User Account"}
-            </button> 
-          <LogoutButton onClick={handleLogout}/></Link>
+            </button></Link> 
+          <Link href=""><LogoutButton onClick={handleLogout}/></Link>
+          </div>
+          
           </>
         ) : (
           <>
-          <Link href=""><button  className=" sign_button text-white  rounded" onClick={() => setShowAuthModal(true) }>Sign In</button></Link>
+          <Link href=""><button  className="sign_button text-white  rounded" onClick={() => setShowAuthModal(true) }>Sign In</button></Link>
                         </>
         )}
         

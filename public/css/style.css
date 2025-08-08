@@ -344,6 +344,19 @@
   text-transform: uppercase;
   opacity:1;
 }
+
+.sign_button_user{
+   /* font-family: 'Font Awesome 6 Pro'; */
+   font-size: var(--font-12);
+  color: var(--white-color);
+  padding-top: var(--padding-top-20); 
+  /* padding-bottom: var(--padding-bottom-20);  */
+  font-weight:700;
+  line-height:30px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity:1;
+}
 .main-menu .navigation > li.dropdown > a:after{
   font-family: 'Font Awesome 6 Pro';
   content: "\f107";

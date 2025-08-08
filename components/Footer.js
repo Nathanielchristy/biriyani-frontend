@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 const Footer = () => {
   return (
@@ -20,7 +21,7 @@ const Footer = () => {
               >
                 <div className="content">
                   <div className="logo">
-                    <a
+                    <Link
                       href="#"
                       title=""
                     >
@@ -29,20 +30,20 @@ const Footer = () => {
                         alt=""
                         title=""
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="info">
                     <ul>
                       <li>Al Ahali Building, Ground Floor, 7-A Baghdad Street, NMC Hospital Square, Al Nahda 2, Dubai</li>
                       <li>
-                        <a href="mailto:booking@domainname.com">
+                        <Link href="mailto:booking@domainname.com">
                           booking@domainname.com
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="tel:+97143395123">
+                        <Link href="tel:+97143395123">
                           Booking Request : +97143395123
-                        </a>
+                        </Link>
                       </li>
                       <li>Open : 10:00 am - 11:00 pm</li>
                     </ul>
@@ -93,19 +94,19 @@ const Footer = () => {
               >
                 <ul className="links">
                   <li>
-                    <a href="#">Home</a>
+                    <Link href="/">Home</Link>
                   </li>
                   <li>
-                    <a href="#">Menus</a>
+                    <Link href="online-order">Menus</Link>
                   </li>
                   <li>
-                    <a href="#">About us</a>
+                    <Link href="about">About us</Link>
                   </li>
+                  {/* <li>
+                    <Link href="#">Our chefs</Link>
+                  </li> */}
                   <li>
-                    <a href="#">Our chefs</a>
-                  </li>
-                  <li>
-                    <a href="#">Contact</a>
+                    <Link href="contact">Contact</Link>
                   </li>
                 </ul>
               </div>
@@ -119,19 +120,19 @@ const Footer = () => {
               >
                 <ul className="links">
                   <li>
-                    <a href="#">facebook</a>
+                    <Link href="#">facebook</Link>
                   </li>
                   <li>
-                    <a href="#">instagram</a>
+                    <Link href="#">instagram</Link>
                   </li>
                   <li>
-                    <a href="#">Twitter</a>
+                    <Link href="#">Twitter</Link>
                   </li>
                   <li>
-                    <a href="#">Youtube</a>
+                    <Link href="#">Youtube</Link>
                   </li>
                   <li>
-                    <a href="#">Google map</a>
+                    <Link href="#">Google map</Link>
                   </li>
                 </ul>
               </div>
@@ -143,12 +144,12 @@ const Footer = () => {
         <div className="auto-container">
           <div className="copyright">
             © 2025 Biryaniwalla & Co Restaurt. All Rights Reserved | Crafted by{" "}
-            <a
+            <Link
               href="https://hdmediauae.com/"
               target="blank"
             >
               HD Digital Media CO.LLC
-            </a>
+            </Link>
           </div>
         </div>
       </div>

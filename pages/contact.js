@@ -4,6 +4,37 @@ import Footer from '../components/Footer'
 
 
 const Contact = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value.trim();
+    const email = e.target.email.value.trim();
+    const phone = e.target.phone.value.trim();
+    const message = e.target.message.value.trim();
+
+    // Your WhatsApp number without '+' or leading zeros
+    const whatsappNumber = "919047011760";
+
+    // Message template
+    const whatsappMsg = `New Request:
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Message: ${message}`;
+
+    // Encode for URL
+    const encodedMsg = encodeURIComponent(whatsappMsg);
+
+    // Mobile or Desktop detection
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const whatsappURL = isMobile
+      ? `https://wa.me/${whatsappNumber}?text=${encodedMsg}`
+      : `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMsg}`;
+
+    // Open WhatsApp
+    window.open(whatsappURL, "_blank");
+  };
   return (
     <>
 
@@ -31,18 +62,6 @@ const Contact = () => {
     </div>
   </section>
 
-   <div className="contact-map">
-  
-     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14430.828889955978!2d55.34526700999687!3d25.28043254309939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAl%20Ahali%20Building%2C%20Ground%20Floor%2C%207-A%20Baghdad%20Street%2C%20NMC%20Hospital%20Square%2C%20Al%20Nahda%202%2C%20Dubai!5e0!3m2!1sen!2sae!4v1754566506950!5m2!1sen!2sae"
-      width="100%"
-      height={500}
-      style={{ border: 0 }}
-      allowFullScreen=""
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    /> 
-  </div> 
   {/*Contact Info Section*/}
   <section className="contact-page">
     <div className="left-bg">
@@ -120,13 +139,13 @@ const Contact = () => {
               </div>
             </div>
             <div className="default-form reservation-form">
-              <form method="post" action="index.html">
+              <form onSubmit={handleSubmit}>
                 <div className="clearfix">
                   <div className="form-group">
                     <div className="field-inner">
                       <input
                         type="text"
-                        name="fieldname"
+                        name="name"
                         defaultValue=""
                         placeholder="Your Name"
                         required=""
@@ -137,7 +156,7 @@ const Contact = () => {
                     <div className="field-inner">
                       <input
                         type="text"
-                        name="fieldname"
+                        name="email"
                         defaultValue=""
                         placeholder="Your Email"
                         required=""
@@ -148,7 +167,7 @@ const Contact = () => {
                     <div className="field-inner">
                       <input
                         type="text"
-                        name="fieldname"
+                        name="phone"
                         defaultValue=""
                         placeholder="Phone Number"
                         required=""
@@ -158,7 +177,7 @@ const Contact = () => {
                   <div className="form-group ">
                     <div className="field-inner">
                       <textarea
-                        name="fieldname"
+                        name="message"
                         placeholder="Special Request"
                         required=""
                         defaultValue={""}
@@ -181,13 +200,26 @@ const Contact = () => {
             </div>
           </div>
           {/*form image Section*/}
-          <div className="loc-block col-lg-6 col-md-12 col-sm-12">
+          {/* <div className="loc-block col-lg-6 col-md-12 col-sm-12">
             <img src="images/resource/footer_resta.png" alt="" />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
   </section>
+  
+   <div className="contact-map">
+  
+     <iframe
+      src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14430.828889955978!2d55.34526700999687!3d25.28043254309939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAl%20Ahali%20Building%2C%20Ground%20Floor%2C%207-A%20Baghdad%20Street%2C%20NMC%20Hospital%20Square%2C%20Al%20Nahda%202%2C%20Dubai!5e0!3m2!1sen!2sae!4v1754566506950!5m2!1sen!2sae"
+      width="100%"
+      height={500}
+      style={{ border: 0 }}
+      allowFullScreen=""
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    /> 
+  </div> 
   {/*Main Footer*/}
   <Footer className="mt-[-220px]"/>
 </div>
