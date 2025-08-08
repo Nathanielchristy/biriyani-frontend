@@ -8,6 +8,7 @@ import { Button } from "../components/ui/button"
 import { useRouter } from "next/navigation"
 import { useAuthStore } from "../lib/auth-store"   // updated import path
 import { useCartStore } from "../lib/cart-store"
+import { FaShoppingCart } from 'react-icons/fa';
 
 const OnlineOrder = () => {
   const router = useRouter()
@@ -17,12 +18,18 @@ const OnlineOrder = () => {
     setShowAuthModal,
     redirectToCheckout,
   } = useAuthStore()
-  const { addToCart } = useCartStore()
+  const { addToCart, decreaseQuantity, increaseQuantity, cartItems  } = useCartStore()
 
   const [menuItems, setMenuItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [selectedCategory, setSelectedCategory] = useState("All")
+
+   // Calculate total quantity in cart for badge
+  const totalQuantity = cartItems.reduce(
+    (sum, item) => sum + (item.quantity || 1),
+    0
+  )
 
   useEffect(() => {
     if (isAuthenticated && redirectToCheckout) {
@@ -94,20 +101,20 @@ const decrementCount = (id) => {
   }))
 }
 
-const handleAddToCart = (item, quantity = 1) => {
-  const processedItem = {
-    ...item,
-    price: Number.parseFloat(item.price),
-    quantity,
-  }
-  addToCart(processedItem)
-  if (isAuthenticated) {
-    router.push("/checkout")
-  } else {
-    setRedirectToCheckout(true)
-    setShowAuthModal(true)
-  }
-}
+// const handleAddToCart = (item) => {
+//   const processedItem = {
+//     ...item,
+//     price: Number.parseFloat(item.price),
+//     quantity:1,
+//   }
+//   addToCart(processedItem)
+//   if (isAuthenticated) {
+//     router.push("/checkout")
+//   } else {
+//     setRedirectToCheckout(true)
+//     setShowAuthModal(true)
+//   }
+// }
 
 
   // const handleAddToCart = (item) => {
@@ -124,6 +131,23 @@ const handleAddToCart = (item, quantity = 1) => {
   //   }
   // }
 
+  const handleAddToCart = (item) => {
+  const qty = itemCounts[item._id] || 1;
+  const processedItem = {
+    ...item,
+    price: Number.parseFloat(item.price),
+  };
+  addToCart(processedItem, qty);
+
+  if (isAuthenticated) {
+    router.push("/online-order");
+  } else {
+    setRedirectToCheckout(true);
+    setShowAuthModal(true);
+  }
+};
+
+
   const filteredItems =
     selectedCategory === "All"
       ? menuItems
@@ -132,14 +156,10 @@ const handleAddToCart = (item, quantity = 1) => {
   return (
     <>
       {/* HEAD STYLES */}
-      <link href="/css/bootstrap.css" rel="stylesheet" />
-      <link href="/css/style.css" rel="stylesheet" />
-      <link href="/css/responsive.css" rel="stylesheet" />
-      <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      
 
       <div className="page-wrapper">
-        <Header />
+      
        
         <section className="inner-banner">
           <div
@@ -161,8 +181,37 @@ const handleAddToCart = (item, quantity = 1) => {
           </div>
         </section>
 
+
         {/* Menu Section */}
         <section className="menu-two">
+         <div style={{ position: "fixed", top: 20, right: 20, cursor:"pointer", zIndex: 1000,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 40,
+            height: 40,  }}  onClick={() => router.push("/checkout")}
+          aria-label="Go to checkout">
+      <FaShoppingCart size={30} color="#000" />
+      {totalQuantity > 0 && (
+            <span
+              style={{
+                position: "absolute",
+                top: 12,
+                right: 12,
+                backgroundColor: "red",
+                color: "white",
+                borderRadius: "50%",
+                padding: "2px 7px",
+                fontSize: "12px",
+                fontWeight: "bold",
+                lineHeight: 1,
+                userSelect: "none",
+              }}
+            >
+              {totalQuantity}
+            </span>
+          )}
+    </div>
           <div className="auto-container">
             {loading ? (
               <p>Loading menu...</p>
@@ -236,7 +285,7 @@ const handleAddToCart = (item, quantity = 1) => {
        
 
         <Button
-          onClick={() => handleAddToCart(item, itemCounts[item._id] || 1)}
+          onClick={() => handleAddToCart(item)}
           className="bg-[#D2AC67] hover:bg-orange-600 text-white"
         >
           Add to Cart 

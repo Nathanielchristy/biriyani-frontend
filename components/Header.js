@@ -4,6 +4,7 @@ import LogoutButton from './Logout'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useAuthStore } from "../lib/auth-store";
+import { useCartStore } from "../lib/cart-store";
 
 
 
@@ -14,6 +15,16 @@ const Header = () => {
     user,
     setShowAuthModal,
   } = useAuthStore();
+  const signOut = useAuthStore((state) => state.signOut);
+   const clearCart = useCartStore((state) => state.clearCart);
+
+
+    const handleLogout = () => {
+    signOut();      // logout user
+    clearCart();    // clear cart items
+    router.push("/"); // redirect to homepage or login page
+  };
+
   // const { isAuthenticated,
   //   setShowAuthModal, } = useAuthStore();
   // const [showSignIn, setShowSignIn] = useState(false);
@@ -93,14 +104,14 @@ const Header = () => {
                     <li>
                       {isAuthenticated ? (
           <>
-            <button onClick={() => router.push("/profile_page")}>
-              👤 {user?.name || "Profile"}
+            <button className="mt-2 sign_button text-white px-4 py-2 rounded" onClick={() => router.push("/profile_page")}>
+               {user?.name || "User Account"}
             </button>
-            <LogoutButton />
+            <LogoutButton onClick={handleLogout}/>
           </>
         ) : (
           <>
-          <button onClick={() => setShowAuthModal(true) }>🔐 Sign In</button>
+          <button  className="mt-3 sign_button text-white px-4 py-2 rounded" onClick={() => setShowAuthModal(true) }>Sign In</button>
                         </>
         )}
                     </li>

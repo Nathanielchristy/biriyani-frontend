@@ -8,24 +8,11 @@ import Footer from '../components/Footer'
 const HomePage = () => {
   return (
    <>
-   <>
-  <link href="css/bootstrap.css" rel="stylesheet" />
-  <link href="css/style.css" rel="stylesheet" />
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
-  <link rel="icon" href="images/favicon.png" type="image/x-icon" />
-  {/* Responsive */}
-  <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-  />
-  <link href="css/responsive.css" rel="stylesheet" />
-  {/*[if lt IE 9]><![endif]*/}
-</>
+   
 
   <div className="page-wrapper">
    
-    <Headers/>
+   
     
     {/* <div className="menu-backdrop" />
    

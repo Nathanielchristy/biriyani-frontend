@@ -27,24 +27,24 @@ const About = () => {
   }, []);
   return (
     <>
-     <>
+      {/* <>
   <link href="css/bootstrap.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" />
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
   <link rel="icon" href="images/favicon.png" type="image/x-icon" />
-  {/* Responsive */}
+
   <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
   />
   <link href="css/responsive.css" rel="stylesheet" />
-  {/*[if lt IE 9]><![endif]*/}
-</>
-
-    <div className="page-wrapper">
  
-  <Headers/>
+</>  */}
+
+   <div className="page-wrapper">
+ 
+  
  
   <section className="inner-banner">
     <div
@@ -69,7 +69,7 @@ const About = () => {
   {/*About Section*/}
   <section className="about-section">
     <div className="left-bg">
-      <img src="images/background/bg-10.png" alt="" title="" />
+      {/* <img src="images/background/bg-10.png" alt="" title="" /> */}
     </div>
     <div className="right-bg">
       <img src="images/background/bg-11.png" alt="" title="" />
@@ -96,10 +96,11 @@ const About = () => {
             data-wow-duration="1500ms"
             data-wow-delay="0ms"
           >
-            <div className="text">
+            {/* <div className="text">
               All Biryanis of course, Chicken 65, Talawa Gosht (Mutton Fry), Khatti Daal (Sour Lentils), and Pathar ka Gosht (Juicy chunks of Mutton cooked on Granite Stone). This is our exclusive delicacy; primarily due to its ethnicity. The recipe is traditional, pure, and unchanged from the olden times, originating from our roots when there were no cookers and people used to cook on stones. It is most tender and luscious.
 Strongly recommend it to all. We try to cater to everyone; meatatarians, vegetarians, and seafood lovers, alike.
-            </div>
+            </div> */}
+            <div className='text'>We began as a modest café in 1980, since then Biryoniwalla 6 Co. has grown into one of the most admired restaurant chains in the country and internationally today - a testament to our committed pursuit of culinary and service excellence. A permanent fixture on Hyderabad's and Dubai‘s cultural scene. people consider a trip to the cities incomplete without a visit to this iconic place that serves World‘s favourite Biryani. Our award—winning cuisine is loved for its purity and taste, true in every mouthful to its royal origins. The same taste and experience was brought to the UAE by our brand owner Mr. REZA ASHTARIAN, continuing the heritage. We welcome you to come and experience our secret recipes which have been tantalizinq tastebuds for the last four decades.</div>
             {/* <div className="signature">
               <img src="images/resource/signature-1.png" alt="" title="" />
             </div> */}
@@ -107,7 +108,7 @@ Strongly recommend it to all. We try to cater to everyone; meatatarians, vegetar
             <div className="video-box">
               <div className="image">
                
-                  <img src="images/resource/about-image-1.jpg" alt="" />
+                  <img src="images/resource/about-image-1.jpg" alt="" className='mt-[-20px]' />
                 
                 {/* <a
                   href="https://www.youtube.com/watch?v=ZETY_l3GVQg"

@@ -1,5 +1,5 @@
 import React from 'react'
-import Headers from '../components/Header'
+
 import Footer from '../components/Footer'
 
 
@@ -7,33 +7,10 @@ const Contact = () => {
   return (
     <>
 
-    <>
-  <link href="css/bootstrap.css" rel="stylesheet" />
-  <link href="css/style.css" rel="stylesheet" />
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
-  <link rel="icon" href="images/favicon.png" type="image/x-icon" />
-  {/* Responsive */}
-  <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-  />
-  <link href="css/responsive.css" rel="stylesheet" />
-  {/*[if lt IE 9]><![endif]*/}
-</>
     <div className="page-wrapper">
-  {/* Preloader */}
- 
-  {/* Preloader End */}
-  {/* Main Header*/}
-  <Headers/>
-  {/*End Main Header */}
-  {/*Menu Backdrop*/}
-  <div className="menu-backdrop" />
  
  
-  {/*End Hidden Bar */}
-  {/* Inner Banner Section */}
+ 
   <section className="inner-banner">
     <div
       className="image-layer"
@@ -53,20 +30,19 @@ const Contact = () => {
       </div>
     </div>
   </section>
-  {/*End Banner Section */}
-  {/*Map Section*/}
-  {/* <div className="contact-map">
-    <iframe
-      src="https://www.google.com/maps/embed/v1/search?key=YOUR_API_KEY
-    &q=Biryaniwalla+%26+Co,+Hamriya+Port,+Dubai"
+
+   <div className="contact-map">
+  
+     <iframe
+      src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14430.828889955978!2d55.34526700999687!3d25.28043254309939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAl%20Ahali%20Building%2C%20Ground%20Floor%2C%207-A%20Baghdad%20Street%2C%20NMC%20Hospital%20Square%2C%20Al%20Nahda%202%2C%20Dubai!5e0!3m2!1sen!2sae!4v1754566506950!5m2!1sen!2sae"
       width="100%"
       height={500}
       style={{ border: 0 }}
       allowFullScreen=""
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
-    />
-  </div> */}
+    /> 
+  </div> 
   {/*Contact Info Section*/}
   <section className="contact-page">
     <div className="left-bg">
@@ -206,14 +182,14 @@ const Contact = () => {
           </div>
           {/*form image Section*/}
           <div className="loc-block col-lg-6 col-md-12 col-sm-12">
-            <img src="images/resource/restaurant.png" alt="" />
+            <img src="images/resource/footer_resta.png" alt="" />
           </div>
         </div>
       </div>
     </div>
   </section>
   {/*Main Footer*/}
-  <Footer/>
+  <Footer className="mt-[-220px]"/>
 </div>
 
     </>

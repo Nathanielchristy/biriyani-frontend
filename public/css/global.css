@@ -998,7 +998,7 @@ img{
     -moz-appearance:  none;
     -ms-appearance:  none;
     appearance:  none;
-    background-image: ;
+    /* background-image: ; */
     background-position: right center;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -1030,4 +1030,30 @@ img{
     padding-top: var(--padding-top-10);
     line-height: 24px;
     margin-bottom: var(--margin-zero);
+}
+
+
+.fixed-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fixed-buttons a {
+  background-color: green;
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+.fixed-buttons a.phone {
+  background-color: #007bff;
+}
+.fixed-buttons a:hover {
+  filter: brightness(1.1);
 }

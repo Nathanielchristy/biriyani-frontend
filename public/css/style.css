@@ -332,7 +332,18 @@
 .main-menu .navigation > li.dropdown > a{
   padding-right: var(--padding-right-20);
 }
-
+.sign_button{
+   /* font-family: 'Font Awesome 6 Pro'; */
+   font-size: var(--font-12);
+  color: var(--white-color);
+  padding-top: var(--padding-top-20);
+  padding-bottom: var(--padding-bottom-20);
+  font-weight:700;
+  line-height:30px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity:1;
+}
 .main-menu .navigation > li.dropdown > a:after{
   font-family: 'Font Awesome 6 Pro';
   content: "\f107";
@@ -6757,7 +6768,10 @@ body.visible-sidebar{
 
 .contact-page{
   position: relative;
-  background: var(--color-four);
+  background-color: #ffffff;
+  /* background-color: #f7ebc6; */
+  
+  /* background: var(--color-five); */
 }
 
 .contact-page .loc-block{
@@ -6899,7 +6913,7 @@ body.visible-sidebar{
 
 .c-page-form-box {
   position: relative;
-  background-color: var(--color-five);
+  background-color: #fbef4f4e;
   padding: 60px;
   margin-top: var(--margin-top-40);
   margin-bottom: var(--margin-bottom-100);
@@ -6920,6 +6934,12 @@ body.visible-sidebar{
 }
 
 
+.fixed-buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
 
 
 /*** 
